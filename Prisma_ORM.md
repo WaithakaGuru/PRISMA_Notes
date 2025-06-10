@@ -6,13 +6,13 @@
    - [Install Prisma](#installing-prisma)
    - [Set up Prisma in your Project](#setting-up-prisma-in-your-project)
 3. [Models in Prisma](#models)
-   - [Intoduction to Models](#introduction-to-prisma-models)
+   - [Introduction to Models](#introduction-to-prisma-models)
    - [Field Types](#field-types)
    - [Field Attributes](#field-attributes)
    - [Field Modifiers](#field-modifiers)
    - [Create a Model](#creating-a-model)
 4. [Migrations in Prisma](#migrations)
-   - [Migraions Overview](#introduction-to-migrations)
+   - [Migrations Overview](#introduction-to-migrations)
    - [Perform a Migration](#performing-a-migration)
 5. [The Prisma Client](#prisma-client)
    - [Overview](#overview-of-the-prisma-client)
@@ -25,7 +25,7 @@
 7. [Relationships in Prisma](#relationships)
    - [Overview](#introduction-to-relationships)
    - [One to One Relationship(1-1)](#one-to-one-relationship)
-   - [One to Many Relatioship(1-n)](#one-to-many-relationship)
+   - [One to Many Relationship(1-n)](#one-to-many-relationship)
    - [Many to Many relationship(k-n)](#many-to-many-relationship)
 8. [Extra Features](#additonal-info)
    - [Dropping a Field in Prisma Model](#dropping-a-column-in-prisma)
@@ -62,10 +62,9 @@ After installing, initialize Prisma in your project. This creates a `prisma` fol
 npx prisma init
 ```
 
-Edit the `schema.prisma` file to set your database connection and define your models.
+Edit the `schema.prisma` file to define your models.
 
-It also creates a `.env` file in the root project folder:
-Edit the __database connection string__ commonly named as `DATABASE_URL=` fix the details of the string to match the connection details of your database.
+It also creates a `.env` file in the root project folder from which you can edit the __database connection string__ commonly named as `DATABASE_URL=` fix the details of the string to match the connection details of your database.
 
 ---
 
@@ -85,8 +84,8 @@ Attributes let you customize fields(columns) e.g:
 - making a field the primary key (`@id`)
 - setting default values (`@default(default_value)`) 
 - making a field unique (`@unique`).
-
-  ## Field Modifiers 
+  
+## Field Modifiers 
 
 Modifiers like `?` (optional) and `[]` (array) let you define if a field is required, optional or a list.
 
