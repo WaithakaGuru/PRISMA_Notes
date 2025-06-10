@@ -458,3 +458,5 @@ This will launch a local web app where you can browse, add, edit, and delete rec
 - **Live editing**: Add, update, or delete records directly from your browser.
 - **Safe**: Works with your Prisma schema, so you only see and edit valid tables and fields.
 - **Great for development**: Quickly test and debug your application data without writing SQL.
+
+__Great work: Waithaka out!! :)__
