@@ -141,7 +141,7 @@ npx prisma generate
 You can then use the client in your code:
 
 ```js
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 ```
 
@@ -154,7 +154,7 @@ const prisma = new PrismaClient();
 Create a new record:
 
 ```js
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function createUser (){
@@ -171,6 +171,18 @@ Find records:
 
 ```js
 const users = await prisma.user.findMany();
+```
+
+  To get a single record use the find() PrismaApi method
+
+```js
+async function getUser() {
+  const user = await prisma.user.find(
+    {
+      where: {id:{lt:3}}
+    }
+  )
+}
 ```
 
   ## Update Operation 
@@ -205,6 +217,17 @@ async function deleteUser() {
 }
 deleteUser();
 ```
+Summary of the CRUD: 
+find() - get / select / fetch a single records
+findMany() - get multiple records
+findManyWithReturn() - get multiple records and return them as an object
+
+__Similar case applies to the Create, Update and Delete Operations__
+create - adds a record to the Model
+createMany - adds multiple records to the Model
+createManyWithReturn - add multiple records and return them as an object
+
+Others methods are: delete(), deleteMany(), deleteManyWithReturn()
 
 ---
 
