@@ -432,7 +432,7 @@ This will remove the table from your database.
 
   ## The Prisma Studio 
 
-Prisma Studio is a visual editor for your database. It lets you view and edit data in your tables through a simple web interface.
+Prisma Studio is a visual editor for your database. It provides a Graphical User Interface and lets you view and edit data in your tables through a simple web interface.
 
    ###  Starting the Prisma Studio
 
@@ -448,7 +448,7 @@ This will launch a local web app where you can browse, add, edit, and delete rec
 
    ###  Merits of the Prisma Studio
 
-- __User-friendly interface__: Makes it easy to view and manage your data.
+- __User-friendly interface__: Makes it easy to view and manage your data, especially for the non-technical team.
 - __Live editing__: Add, update, or delete records directly from your browser.
 - __Safe__: Works with your Prisma schema, so you only see and edit valid tables and fields.
 - __Great for development__: Quickly test and debug your application data without writing SQL.
