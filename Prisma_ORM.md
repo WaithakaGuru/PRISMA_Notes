@@ -223,9 +223,9 @@ findMany() - get multiple records
 findManyWithReturn() - get multiple records and return them as an object
 
 __Similar case applies to the Create, Update and Delete Operations__
-create - adds a record to the Model
-createMany - adds multiple records to the Model
-createManyWithReturn - add multiple records and return them as an object
+create() - adds a record to the Model
+createMany() - adds multiple records to the Model
+createManyWithReturn() - add multiple records and return them as an object
 
 Others methods are: delete(), deleteMany(), deleteManyWithReturn()
 
