@@ -100,7 +100,7 @@ model User {
   email String @unique
 }
 ```
-_Note_: __Use `uuid()` to generate Unique and Random Ids.
+_Note_: ___Use `uuid()` to generate Unique and Random Ids.___
 
 ---
 
