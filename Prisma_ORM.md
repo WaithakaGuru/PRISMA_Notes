@@ -1,6 +1,7 @@
 # PRISMA ORM (Object-Relational Mapper)
 
 # Table of Contents:
+
 1. [Prisma Overview](#overview)
 2. [Getting Started](#getting-started-with-prisma)
    - [Install Prisma](#installing-prisma)
@@ -35,7 +36,7 @@
      - [Benefits of Prisma Studio](#merits-of-the-prisma-studio)
 
 ---
- 
+
 # Overview
 
 Prisma is a modern ORM (Object-Relational Mapper) for Node.js and TypeScript. It helps you work with databases in a type-safe and easy way, letting you write queries in JavaScript/TypeScript instead of SQL. Prisma supports popular databases like PostgreSQL, MySQL, SQLite and more.
@@ -46,7 +47,7 @@ With Prisma, you define your data models in a schema file and Prisma generates a
 
 # Getting Started with Prisma
 
-  ## Installing Prisma
+## Installing Prisma
 
 To get started, install Prisma and its CLI as development dependencies:
 
@@ -54,7 +55,7 @@ To get started, install Prisma and its CLI as development dependencies:
 npm install prisma -D
 ```
 
-  ## Setting up Prisma in your Project 
+## Setting up Prisma in your Project
 
 After installing, initialize Prisma in your project. This creates a `prisma` folder with a `schema.prisma` file:
 
@@ -64,34 +65,35 @@ npx prisma init
 
 Edit the `schema.prisma` file to define your models.
 
-It also creates a `.env` file in the root project folder from which you can edit the __database connection string__ commonly named as `DATABASE_URL=` fix the details of the string to match the connection details of your database.
+It also creates a `.env` file in the root project folder from which you can edit the **database connection string** commonly named as `DATABASE_URL=` fix the details of the string to match the connection details of your database.
 
 ---
 
 # Models
 
-  ## Introduction to Prisma Models 
-  
+## Introduction to Prisma Models
+
 Models in Prisma represent tables in your database. Each model is defined in the `schema.prisma` file and describes the fields (columns) and their types.
 
-  ## Field types
+## Field types
 
 Field types in Prisma include `String`, `Int`, `Boolean`, `DateTime`, `Byte`, `BigInt` and `Decimal`. These types map to the types supported by your database.
 
-  ## Field attributes 
- 
-Attributes let you customize fields(columns) e.g: 
+## Field attributes
+
+Attributes let you customize fields(columns) e.g:
+
 - making a field the primary key (`@id`)
-- setting default values (`@default(default_value)`) 
+- setting default values (`@default(default_value)`)
 - making a field unique (`@unique`).
-  
-## Field Modifiers 
+
+## Field Modifiers
 
 Modifiers like `?` (optional) and `[]` (array) let you define if a field is required, optional or a list.
 
-  ## Creating a model
+## Creating a model
 
- example of a `User` model:
+example of a `User` model:
 
 ```prisma
 model User {
@@ -100,37 +102,39 @@ model User {
   email String @unique
 }
 ```
-_Note_: ___Use `uuid()` to generate Unique and Random Ids.___
+
+_Note_: **_Use `uuid()` to generate Unique and Random Ids._**
 
 ---
 
-# Migrations 
-  
-  ## Introduction to Migrations
+# Migrations
+
+## Introduction to Migrations
 
 Migrations are used to update your database schema as your models change. Prisma generates migration files that describe the changes.
 
-  ## Performing a Migration 
+## Performing a Migration
 
 After applying changes to the schema.prisma file, run a migration with:
 
 ```bash
 npx prisma migrate dev --name "Migration_name_to_describe_the_changes_made_"
 ```
+
 This updates your database and keeps track of changes.
 
 ---
 
-# Prisma Client 
- 
- ## Overview of the Prisma Client 
+# Prisma Client
+
+## Overview of the Prisma Client
 
 The Prisma Client is an auto-generated library that lets you interact with your database using JavaScript or TypeScript. It provides type-safe queries and autocompletion.
 
- ## Creating a Prisma Client 
+## Creating a Prisma Client
 
 After defining your models and running a migration,
- __In the newer versions of Prisma the Client should be automatically generated__ but if the outo-generation fails,  
+**In the newer versions of Prisma the Client should be automatically generated** but if the outo-generation fails,
 
 generate the client:
 
@@ -141,7 +145,7 @@ npx prisma generate
 You can then use the client in your code:
 
 ```js
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 ```
 
@@ -149,23 +153,23 @@ const prisma = new PrismaClient();
 
 # CRUD OPERATIONS in PRISMA
 
-  ## Create Operation
+## Create Operation
 
 Create a new record:
 
 ```js
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-async function createUser (){
- const newUser = await prisma.user.create({
-  data: { name: 'Kevin', email: 'kevin@email.com' }
-});
+async function createUser() {
+  const newUser = await prisma.user.create({
+    data: { name: "Kevin", email: "kevin@email.com" },
+  });
 }
 createUser();
 ```
 
-  ## Read Operation 
+## Read Operation
 
 Find records:
 
@@ -173,42 +177,40 @@ Find records:
 const users = await prisma.user.findMany();
 ```
 
-  To get a single record use the find() PrismaApi method
+To get a single record use the find() PrismaApi method
 
 ```js
 async function getUser() {
-  const user = await prisma.user.find(
-    {
-      where: {id:{lt:3}}
-    }
-  )
+  const user = await prisma.user.find({
+    where: { id: { lt: 3 } },
+  });
 }
 ```
 
-  ## Update Operation 
+## Update Operation
 
 Update a record:
 
 ```js
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function updateUser() {
   const updatedUser = await prisma.user.update({
     where: { id: 1 },
-    data: { name: 'Elian' }
+    data: { name: "Elian" },
   });
 }
 updateUser();
 ```
 
-  ## Delete Operation 
+## Delete Operation
 
 Delete a record:
 
 ```js
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -217,12 +219,13 @@ async function deleteUser() {
 }
 deleteUser();
 ```
-Summary of the CRUD: 
+
+Summary of the CRUD:
 find() - get / select / fetch a single records
 findMany() - get multiple records
 findManyWithReturn() - get multiple records and return them as an object
 
-__Similar case applies to the Create, Update and Delete Operations__
+**Similar case applies to the Create, Update and Delete Operations**
 create() - adds a record to the Model
 createMany() - adds multiple records to the Model
 createManyWithReturn() - add multiple records and return them as an object
@@ -231,17 +234,17 @@ Others methods are: delete(), deleteMany(), deleteManyWithReturn()
 
 ---
 
-# Relationships 
+# Relationships
 
-  ## Introduction to relationships
+## Introduction to relationships
 
 Relationships in Prisma let you connect models together, just like foreign keys in SQL. You can define one-to-one, one-to-many, and many-to-many relationships between your models. This makes it easy to represent real-world connections, like users and their posts, or students and their courses.
 
-  ## One-to-One Relationship
+## One-to-One Relationship
 
 A one-to-one relationship links a single record in one table to a single record in another. For example, each user can have one profile, and each profile belongs to one user.
 
-__Prisma Schema Example__:
+**Prisma Schema Example**:
 
 ```prisma
 model User {
@@ -258,31 +261,32 @@ model Profile {
 }
 ```
 
-__Sample Data:__
+**Sample Data:**
+
 - User: Jonteh
 - Profile: { bio: "Full Stack Developer" }
 
-__How to create a user with a profile:__
+**How to create a user with a profile:**
 
 ```js
 const user = await prisma.user.create({
   data: {
-    name: 'Jonteh',
+    name: "Jonteh",
     profile: {
-      create: { bio: 'Full Stack Developer' }
-    }
+      create: { bio: "Full Stack Developer" },
+    },
   },
-  include: { profile: true }
+  include: { profile: true },
 });
 ```
 
 ---
 
-  ## One-to-Many Relationship
+## One-to-Many Relationship
 
 A one-to-many relationship connects a single record in one table to multiple records in another. For example, a user can have many posts, but each post belongs to one user.
 
-__Prisma Schema Example:__
+**Prisma Schema Example:**
 
 ```prisma
 model User {
@@ -300,34 +304,35 @@ model Post {
 }
 ```
 
-__Sample Data:__
+**Sample Data:**
+
 - User: Piri
 - Posts: ["Prisma Basics", "Advanced Prisma"]
 
-__How to create a user with multiple posts:__
+**How to create a user with multiple posts:**
 
 ```js
 const user = await prisma.user.create({
   data: {
-    name: 'Piri',
+    name: "Piri",
     posts: {
       create: [
-        { title: 'Prisma Basics', content: 'Intro to ORM' },
-        { title: 'Advanced Prisma', content: 'Deep dive' }
-      ]
-    }
+        { title: "Prisma Basics", content: "Intro to ORM" },
+        { title: "Advanced Prisma", content: "Deep dive" },
+      ],
+    },
   },
-  include: { posts: true }
+  include: { posts: true },
 });
 ```
 
 ---
 
-  ## Many-to-Many Relationship 
+## Many-to-Many Relationship
 
 A many-to-many relationship allows multiple records in one table to be related to multiple records in another. For example, students can enroll in many courses, and each course can have many students.
 
-__Prisma Schema Example:__
+**Prisma Schema Example:**
 
 ```prisma
 model Student {
@@ -343,48 +348,49 @@ model Course {
 }
 ```
 
-__Sample Data:__
+**Sample Data:**
+
 - Students: Amos, Amon, Mc Garthy
 - Courses: "Math", "Science"
 
-__How to enroll students in courses:__
+**How to enroll students in courses:**
 
 ```js
-import {PrismaClient} from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 const course = await prisma.course.create({
   data: {
-    title: 'Math',
+    title: "Math",
     students: {
       create: [
-        { student: { create: { name: 'Amos' } } },
-        { student: { create: { name: 'Amon' } } }
-      ]
-    }
+        { student: { create: { name: "Amos" } } },
+        { student: { create: { name: "Amon" } } },
+      ],
+    },
   },
-  include: { students: true }
+  include: { students: true },
 });
 
 // Or add an existing student to a course
-import {PrismaClient} from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 await prisma.course.update({
   where: { id: 1 },
   data: {
     students: {
-      connect: [{ id: 3 }] // Mc Garthy
-    }
-  }
+      connect: [{ id: 3 }], // Mc Garthy
+    },
+  },
 });
 ```
 
 ---
 
-# Additonal Info 
+# Additonal Info
 
-  ## Dropping a column in Prisma
+## Dropping a column in Prisma
 
 To remove a field (column) from a model in Prisma, simply delete the field from your `schema.prisma` file. For example, if you want to remove the `bio` field from the `Profile` model:
 
@@ -407,7 +413,7 @@ Prisma will generate a migration that drops the column from your database table.
 
 ---
 
-  ## Dropping a model(table) in Prisma
+## Dropping a model(table) in Prisma
 
 To delete a table, remove the entire model from your `schema.prisma` file. For example, to drop the `Profile` table, delete the whole model:
 
@@ -430,11 +436,11 @@ This will remove the table from your database.
 
 ---
 
-  ## The Prisma Studio 
+## The Prisma Studio
 
 Prisma Studio is a visual editor for your database. It provides a Graphical User Interface and lets you view and edit data in your tables through a simple web interface.
 
-   ###  Starting the Prisma Studio
+### Starting the Prisma Studio
 
 To open Prisma Studio, run:
 
@@ -446,9 +452,9 @@ This will launch a local web app where you can browse, add, edit, and delete rec
 
 ---
 
-   ###  Merits of the Prisma Studio
+### Merits of the Prisma Studio
 
-- __User-friendly interface__: Makes it easy to view and manage your data, especially for the non-technical team.
-- __Live editing__: Add, update, or delete records directly from your browser.
-- __Safe__: Works with your Prisma schema, so you only see and edit valid tables and fields.
-- __Great for development__: Quickly test and debug your application data without writing SQL.
+- **User-friendly interface**: Makes it easy to view and manage your data, especially for the non-technical team.
+- **Live editing**: Add, update, or delete records directly from your browser.
+- **Safe**: Works with your Prisma schema, so you only see and edit valid tables and fields.
+- **Great for development**: Quickly test and debug your application data without writing SQL.
