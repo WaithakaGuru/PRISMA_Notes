@@ -21,6 +21,8 @@ If you have ever searched for something on your browser, say "https://youtube.co
 
 <mark>__Let's Dive In:__
 
+---
+
 ## Essential Terms in this blog:
 
 __Browser__: the application that let's you send HTTPS requests e.g. Chrome, Safari, Firefox and Ms Edge
@@ -32,6 +34,8 @@ __HTTPS__: Hypertext transfer Protocol Secure
 __URL__: Universal Resource Locator
 __TCP/IP__: Transmission Control Protocol / Internet Protocol
 __DNS__: Domain Name System Server
+
+---
 
 ### What happens when you type "google.com" on your browser and hit 'enter':
 
@@ -57,6 +61,8 @@ A series of steps takes place in those few seconds before you get a response, th
 
 1. Finally, the browser will render the page and display it to you.
 
+---
+
 ## A deep dive into the steps above:
 
 ## DNS Request (Domain Name System)
@@ -74,6 +80,8 @@ The resolver returns the IP to the browser, which then contacts the website’s 
 
 This IP address is saved (cached) for a certain time, defined by the TTL (Time To Live) value set by the domain owner.
 
+---
+
 ## TCP/IP Connection
 
 The Internet runs on two main protocols: TCP (Transmission Control Protocol) and IP (Internet Protocol).
@@ -87,6 +95,8 @@ When you visit a website:
 
 Your browser receives and displays the webpage.
 
+---
+
 ## Firewall
 
 A firewall is a security tool that monitors traffic between your device and the internet.
@@ -96,6 +106,8 @@ When your request to access google.com is made:
 - The firewall checks whether the request is allowed, based on preset rules.
 - These rules might block traffic from certain regions, or only allow certain types of traffic (e.g., only HTTPS).
 - If your request matches the firewall’s rules, it’s allowed through. Otherwise, it’s blocked.
+
+---
 
 ## HTTPS and SSL/TLS
 
@@ -107,11 +119,15 @@ For Example: sending a message in a locked box. Only the intended recipient has 
 
 - When you connect to google.com, your browser and the server agree on how to encrypt data, so everything sent is private and secure.
 
+---
+
 ## Load Balancer
 
 A load balancer spreads incoming traffic across multiple servers to ensure no single server gets overloaded.
 
 - When many users try to access google.com, the load balancer distributes those requests across Google’s many servers. This keeps things fast and stable.
+
+---
 
 ## Web Server
 
@@ -123,6 +139,8 @@ Once the load balancer chooses a server:
 - It gathers the necessary files.
 - It sends them back through the load balancer to your browser.
 
+---
+
 ## Application Server and Database
 
 While web servers deal with static files, application servers handle dynamic content.
@@ -133,6 +151,8 @@ For example:
 - That server processes your query and may contact a database to get results.
 - It then sends the data back to the web server, which returns it to your browser.
 
+---
+
 ## Rendering the Page
 
 Once the browser receives everything:
@@ -142,3 +162,4 @@ Once the browser receives everything:
 - It applies styles and runs scripts.
 
 You can now interact with the page via clicking on links / buttons or typing to form on the page or just scrolling through the page.
+---
