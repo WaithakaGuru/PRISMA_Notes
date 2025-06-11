@@ -1,12 +1,12 @@
-# "What Happens When You Type 'google.com' And Press 'Enter' "
+# "What Happens When You Type 'google.co' And Press 'Enter' "
 ## The Working of URL Requests and Response on the Browser
 
 If you have ever searched for something on your browser, say "https://youtube.com/", then you may need to know ___what happens in the background for your site to be loaded.___
-__Let's Dive In:__
 
-### What happens when you type "google.com" on your browser and hit 'enter': 
+<mark>__Let's Dive In:__
 
-__Essential Terms in this blog:__
+## Essential Terms in this blog:
+
 __Browser__: the application that let's you send HTTPS requests e.g. Chrome, Safari, Firefox and Ms Edge
 __Client__: Your computer that sends the URL request when you press enter
 __Server__: The computer that contains the resource that you are requesting; it responds to the client with the requested resource or an error in case there is a failure 
@@ -17,7 +17,13 @@ __URL__: Universal Resource Locator
 __TCP/IP__: Transmission Control Protocol / Internet Protocol
 __DNS__: Domain Name System Server 
 
+### What happens when you type "google.com" on your browser and hit 'enter': 
+
+
 A series of steps takes place in those few seconds before you get a response, these step are: 
+
+1. The browser performs a Browser-Handling to check what you've typed and correct any errors and pre-fix the necessary scheme e.g. (http:// or https://) Since google.co lacks a scheme (http:// or https://), most browsers assume https:// by default.
+__Thus the browser rewrites the address to: 'https://google.co/'__
 
 1. The domain name system (DNS) server, acts as an address book for all domain names. It receives a request from your computer and returns and IP address of the server where the resource (https://www.google.com) is found.
 
@@ -39,17 +45,14 @@ A series of steps takes place in those few seconds before you get a response, th
 ## A deep dive into the steps above:
 ## DNS Request (Domain Name System)
 
-- When you enter the search google.com into your browser, the browser checks if it already has the website’s IP address stored in its cache. If it does, it uses that to contact the server directly, saving time.
+___When you enter the search google.com into your browser, the browser checks if it already has the website’s IP address stored in its cache. If it does, it uses that to contact the server directly, saving time.___
 
-If not, it goes through a process to find the IP address. This process is called DNS lookup, and it involves several steps:
+ __If not__, it goes through a process to find the IP address. This process is called DNS lookup, and it involves several steps:
 
-The browser asks the local DNS resolver (usually your ISP) if it knows the IP address.
-
-If not, the resolver contacts a root DNS server to find out which Top-Level Domain (TLD) server (like .com) to ask.
-
-The resolver then asks the TLD server, which points it to the authoritative name server for the domain.
-
-The authoritative server gives the actual IP address.
+- The browser asks the local DNS resolver (usually your ISP) if it knows the IP address.
+- If not, the resolver contacts a root DNS server to find out which Top-Level Domain (TLD) server (like .com) to ask.
+- The resolver then asks the TLD server, which points it to the authoritative name server for the domain.
+- The authoritative server gives the actual IP address.
 
 The resolver returns the IP to the browser, which then contacts the website’s server.
 
@@ -60,13 +63,10 @@ The Internet runs on two main protocols: TCP (Transmission Control Protocol) and
 
 When you visit a website:
 
-Your browser uses IP to locate the server.
-
-Then, TCP creates a connection using a process called a handshake.
-
-After the handshake, your browser sends a request to load the page.
-
-The server sends back the webpage data using TCP, ensuring that everything arrives in the right order.
+- Your browser uses IP to locate the server.
+- Then, TCP creates a connection using a process called a handshake.
+- After the handshake, your browser sends a request to load the page.
+- The server sends back the webpage data using TCP, ensuring that everything arrives in the right order.
 
 Your browser receives and displays the webpage.
 
@@ -75,56 +75,48 @@ A firewall is a security tool that monitors traffic between your device and the 
 
 When your request to access google.com is made:
 
-The firewall checks whether the request is allowed, based on preset rules.
+- The firewall checks whether the request is allowed, based on preset rules.
+- These rules might block traffic from certain regions, or only allow certain types of traffic (e.g., only HTTPS).
+- If your request matches the firewall’s rules, it’s allowed through. Otherwise, it’s blocked.
 
-These rules might block traffic from certain regions, or only allow certain types of traffic (e.g., only HTTPS).
-
-If your request matches the firewall’s rules, it’s allowed through. Otherwise, it’s blocked.
-
-HTTPS and SSL/TLS
+## HTTPS and SSL/TLS
 HTTPS is a secure version of HTTP. It encrypts your data to protect it from being read by outsiders.
 
-The encryption is handled using protocols like SSL (Secure Sockets Layer) or TLS (Transport Layer Security).
+- The encryption is handled using protocols like SSL (Secure Sockets Layer) or TLS (Transport Layer Security).
 
-Analogy: Imagine sending a message in a locked box. Only the intended recipient has the key. SSL/TLS are the locks and keys, while HTTPS is the secure box itself.
+For Example: sending a message in a locked box. Only the intended recipient has the key. SSL/TLS are the locks and keys, while HTTPS is the secure box itself.
 
-When you connect to google.com, your browser and the server agree on how to encrypt data, so everything sent is private and secure.
+- When you connect to google.com, your browser and the server agree on how to encrypt data, so everything sent is private and secure.
 
 ## Load Balancer
 A load balancer spreads incoming traffic across multiple servers to ensure no single server gets overloaded.
 
-When many users try to access google.com, the load balancer distributes those requests across Google’s many servers. This keeps things fast and stable.
+- When many users try to access google.com, the load balancer distributes those requests across Google’s many servers. This keeps things fast and stable.
 
 ## Web Server
 A web server handles requests for web content like HTML, CSS, and JavaScript.
 
 Once the load balancer chooses a server:
 
-That server receives the browser’s request.
-
-It gathers the necessary files.
-
-It sends them back through the load balancer to your browser.
+- That server receives the browser’s request.
+- It gathers the necessary files.
+- It sends them back through the load balancer to your browser.
 
 ## Application Server and Database
 While web servers deal with static files, application servers handle dynamic content.
 
 For example:
 
-When you perform a search on Google, the request goes to an application server.
-
-That server processes your query and may contact a database to get results.
-
-It then sends the data back to the web server, which returns it to your browser.
+- When you perform a search on Google, the request goes to an application server.
+- That server processes your query and may contact a database to get results.
+- It then sends the data back to the web server, which returns it to your browser.
 
 ## Rendering the Page
 Once the browser receives everything:
 
-It reads and processes the HTML, CSS, and JavaScript.
+- It reads and processes the HTML, CSS, and JavaScript.
+- It places text and images where they should go.
+- It applies styles and runs scripts.
 
-It places text and images where they should go.
-
-It applies styles and runs scripts.
-
-You can now interact with the page—click links, type, etc.
+You can now interact with the page via clicking on links / buttons or typing to form on the page  or just scrolling through the page.
 
