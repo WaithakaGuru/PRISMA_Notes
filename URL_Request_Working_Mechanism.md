@@ -1,29 +1,44 @@
 # "What Happens When You Type 'google.co' And Press 'Enter' "
 
+# Table of Contents
+1. [Introduction](#what-happens-when-you-type-googleco-and-press-enter-)
+2. [Essential Terms](#essential-terms-in-this-blog)
+3. [Step-by-Step Process](#what-happens-when-you-type-googlecom-on-your-browser-and-hit-enter)
+4. [DNS Request](#dns-request-domain-name-system)
+5. [TCP/IP Connection](#tcpip-connection)
+6. [Firewall](#firewall)
+7. [HTTPS and SSL/TLS](#https-and-ssltls)
+8. [Load Balancer](#load-balancer)
+9. [Web Server](#web-server)
+10. [Application Server and Database](#application-server-and-database)
+11. [Rendering the Page](#rendering-the-page)
+
+---
+
 ## The Working of URL Requests and Response on the Browser
 
-If you have ever searched for something on your browser, say "https://youtube.com/", then you may need to know **_what happens in the background for your site to be loaded._**
+If you have ever searched for something on your browser, say "https://youtube.com/", then you may need to know __what happens in the background for your site to be loaded.__
 
-<mark>**Let's Dive In:**
+<mark>__Let's Dive In:__
 
 ## Essential Terms in this blog:
 
-**Browser**: the application that let's you send HTTPS requests e.g. Chrome, Safari, Firefox and Ms Edge
-**Client**: Your computer that sends the URL request when you press enter
-**Server**: The computer that contains the resource that you are requesting; it responds to the client with the requested resource or an error in case there is a failure
-**Request**: The URL that you / the client sends e.g. "google.com"
-**Response**: the Webpage that is given back as a response
-**HTTPS**: Hypertext transfer Protocol Secure
-**URL**: Universal Resource Locator
-**TCP/IP**: Transmission Control Protocol / Internet Protocol
-**DNS**: Domain Name System Server
+__Browser__: the application that let's you send HTTPS requests e.g. Chrome, Safari, Firefox and Ms Edge
+__Client__: Your computer that sends the URL request when you press enter
+__Server__: The computer that contains the resource that you are requesting; it responds to the client with the requested resource or an error in case there is a failure
+__Request__: The URL that you / the client sends e.g. "google.com"
+__Response__: the Webpage that is given back as a response
+__HTTPS__: Hypertext transfer Protocol Secure
+__URL__: Universal Resource Locator
+__TCP/IP__: Transmission Control Protocol / Internet Protocol
+__DNS__: Domain Name System Server
 
 ### What happens when you type "google.com" on your browser and hit 'enter':
 
 A series of steps takes place in those few seconds before you get a response, these step are:
 
 1. The browser performs a Browser-Handling to check what you've typed and correct any errors and pre-fix the necessary scheme e.g. (http:// or https://) Since google.co lacks a scheme (http:// or https://), most browsers assume https:// by default.
-   **Thus the browser rewrites the address to: 'https://google.co/'**
+   __Thus the browser rewrites the address to: 'https://google.co/'__
 
 1. The domain name system (DNS) server, acts as an address book for all domain names. It receives a request from your computer and returns and IP address of the server where the resource (https://www.google.com) is found.
 
@@ -46,9 +61,9 @@ A series of steps takes place in those few seconds before you get a response, th
 
 ## DNS Request (Domain Name System)
 
-**_When you enter the search google.com into your browser, the browser checks if it already has the website’s IP address stored in its cache. If it does, it uses that to contact the server directly, saving time._**
+__When you enter the search google.com into your browser, the browser checks if it already has the website’s IP address stored in its cache. If it does, it uses that to contact the server directly, saving time.__
 
-**If not**, it goes through a process to find the IP address. This process is called DNS lookup, and it involves several steps:
+__If not__, it goes through a process to find the IP address. This process is called DNS lookup, and it involves several steps:
 
 - The browser asks the local DNS resolver (usually your ISP) if it knows the IP address.
 - If not, the resolver contacts a root DNS server to find out which Top-Level Domain (TLD) server (like .com) to ask.
