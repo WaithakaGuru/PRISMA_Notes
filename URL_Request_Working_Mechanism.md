@@ -34,7 +34,7 @@ __Thus the browser rewrites the address to: 'https://google.co/'__
 
 1. In addition to maintaining a large number of servers, high-traffic companies like Google also have a load balancer that takes in the majority of requests and routes them to a specific server.
 
-1. Following receipt of the request, the load balancer receives a response from the server and relays it to your browser.  The HTML, CSS, and JavaScript files that make up Google's homepage will be the main components of this answer.
+1.After the request is received, the load balancer receives a response from the server and relays it to your browser.  The HTML, CSS, and JavaScript files that make up Google's homepage will be the main components of this answer.
 
 1. The HTML files were returned to instruct the browser on how to display the page's content.  While the JavaScript file gives the page interaction, the CSS file instructs the browser how to style the content.
 
