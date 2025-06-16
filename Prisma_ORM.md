@@ -60,7 +60,7 @@ npm install prisma -D
 After installing, initialize Prisma in your project. This creates a `prisma` folder with a `schema.prisma` file:
 
 ```bash
-npx prisma init
+npx prisma init --datasource-provider -postgresql
 ```
 
 Edit the `schema.prisma` file to define your models.
